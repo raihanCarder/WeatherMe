@@ -1,3 +1,180 @@
-body{
-    background-color: red;
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --sunny-day-bg: rgba(135, 206, 250, 0.9);
+  --background-blur: rgba(255, 255, 255, 0.1);
+  --section-blur: rgba(255, 255, 255, 0.2);
+  --section-border: rgba(255, 255, 255, 0.3);
+  --section-shadow: rgba(0, 0, 0, 0.2);
+  --text-color: #000;
+  --background-image: url("images/sunnyDay.jpg");
+}
+
+body {
+  height: 100vh;
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Montserrat", sans-serif;
+
+  background-image: var(--background-image);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Display Modes */
+
+.sunny-mode {
+  --background-blur: rgba(255, 255, 255, 0.1);
+  --section-blur: rgba(255, 255, 255, 0.2);
+  --section-border: rgba(255, 255, 255, 0.3);
+  --section-shadow: rgba(0, 0, 0, 0.15);
+  --text-color: #000;
+  --background-image: url("images/sunnyDay.jpg");
+}
+
+.cloudy-mode {
+  --background-blur: rgba(240, 240, 240, 0.1);
+  --section-blur: rgba(240, 240, 240, 0.2);
+  --section-border: rgba(200, 200, 200, 0.4);
+  --section-shadow: rgba(0, 0, 0, 0.1);
+  --text-color: #333;
+  --background-image: url("images/cloudyDay.jpeg");
+}
+
+.night-mode {
+  --background-blur: rgba(20, 20, 30, 0.2);
+  --section-blur: rgba(40, 40, 60, 0.3);
+  --section-border: rgba(255, 255, 255, 0.1);
+  --section-shadow: rgba(0, 0, 0, 0.5);
+  --text-color: #fff;
+  --background-image: url("images/nightMode.jpeg");
+}
+
+/* Layout */
+
+.app-layout {
+  width: 70%;
+  height: 60%;
+  border-radius: 20px;
+  padding: 1rem;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto 1fr 0.7fr;
+  gap: 1rem;
+
+  grid-template-areas:
+    "top-info top-info"
+    "today today-stats"
+    "future future";
+
+  backdrop-filter: blur(10px);
+  background: var(--background-blur);
+  border: 1px solid var(--section-border);
+  box-shadow: 0 8px 32px var(--section-shadow);
+  color: var(--text-color);
+}
+
+.app-layout:hover {
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.35);
+}
+
+.form-display {
+  width: 100%;
+}
+
+.top-display {
+  grid-area: top-info;
+}
+
+.today-display {
+  grid-area: today;
+}
+
+.today-display,
+.today-stats-display,
+.next-week-display {
+  background: var(--section-blur);
+  border: 1px solid var(--section-border);
+  border-radius: 15px;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 4px 12px var(--section-shadow);
+  padding: 1rem;
+}
+
+.today-stats-display {
+  grid-area: today-stats;
+}
+
+.next-week-display {
+  grid-area: future;
+}
+
+/* ERROR TEXT */
+
+#error-msg {
+  position: absolute;
+  background-color: gray;
+  color: black;
+  font-size: 0.7rem;
+  width: 100%;
+  border-radius: 10px;
+  padding: 3px;
+
+  background-color: #ffe6e6; /* light red/pink background */
+  color: #cc0000; /* strong red text */
+  border: 1px solid #cc0000; /* red border */
+  font-weight: bold;
+  z-index: 1000;
+}
+
+.invisible {
+  display: none;
+}
+
+/* Search bar */
+
+.input-wrapper {
+  position: relative;
+  width: 50%;
+}
+
+.input-wrapper input {
+  width: 100%;
+  padding-right: 40px;
+  font-size: 1rem;
+  padding: 0.5rem;
+  border-radius: 10px;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+#search-box {
+  font-size: 1rem;
+  padding: 3px;
+  border-radius: 10px;
+}
+
+.input-wrapper button {
+  right: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 80%;
+  border-radius: 10px;
+
+  position: absolute;
+  border: none;
+  background: inherit;
+  cursor: pointer;
+  background-color: inherit;
 }

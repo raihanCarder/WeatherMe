@@ -1,11 +1,32 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather App</title>
-</head>
-<body>
-    
-</body>
+  </head>
+  <body class="sunny-mode">
+    <div class="app-layout">
+      <div class="top-display">
+        <div class="form-display">
+          <form action="" method="post" id="form" novalidate>
+            <div class="input-wrapper">
+              <input
+                type="text"
+                id="search-box"
+                placeholder="Search..."
+                required
+              />
+              <p id="error-msg">Testing</p>
+
+              <button type="submit" id="submit-btn">🔍</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="today-display"></div>
+      <div class="today-stats-display"></div>
+      <div class="next-week-display"></div>
+    </div>
+  </body>
 </html>
