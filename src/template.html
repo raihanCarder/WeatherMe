@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather App</title>
   </head>
-  <body class="sunny-mode">
+  <body id="body">
     <div class="app-layout">
       <div class="top-display">
         <div class="form-display">
@@ -15,16 +15,27 @@
                 type="text"
                 id="search-box"
                 placeholder="Search..."
+                maxlength="65"
                 required
               />
               <p id="error-msg"></p>
 
-              <button type="submit" id="submit-btn">🔍</button>
+              <button type="submit" id="submit-btn"></button>
             </div>
           </form>
         </div>
       </div>
-      <div class="today-display"></div>
+      <div class="today-display">
+        <div class="center-content">
+          <h1 id="today-location-name"></h1>
+          <p id="today-degrees"></p>
+          <p id="today-description"></p>
+          <div id="today-high-and-low">
+            <p id="today-high"></p>
+            <p id="today-low"></p>
+          </div>
+        </div>
+      </div>
       <div class="today-stats-display"></div>
       <div class="next-week-display"></div>
     </div>
