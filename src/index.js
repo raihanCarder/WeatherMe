@@ -33,7 +33,7 @@ async function handleSearch(input) {
   if (data) {
     // update ui
   } else {
-    errorMsg.displayError("Location Not Found");
+    errorMsg.displayError("Location Not Found", 4000);
   }
   console.log(data);
 }
@@ -50,7 +50,7 @@ function initDom(submitFunc) {
     e.preventDefault();
 
     if (!searchInput.checkValidity()) {
-      errorMsg.displayError("Location Not Found");
+      errorMsg.displayError("Location Not Found", 4000);
       return;
     }
 
