@@ -60,11 +60,17 @@ body {
   --background-image: url("images/nightMode.jpeg");
 }
 
+.night-mode img.icon,
+.night-mode div.icon,
+.night-mode button.icon {
+  filter: drop-shadow(0 0 3px white);
+}
+
 /* Layout */
 
 .app-layout {
   width: 70%;
-  height: 60%;
+  height: 70%;
   border-radius: 20px;
   padding: 1rem;
 
@@ -112,10 +118,6 @@ body {
   grid-area: today-stats;
 }
 
-.next-week-display {
-  grid-area: future;
-}
-
 /* ERROR TEXT */
 
 #error-msg {
@@ -151,11 +153,18 @@ body {
   font-size: 1rem;
   padding: 0.5rem;
   border-radius: 10px;
-  border: none;
-  background-color: #f0f4f8;
+  color: var(--text-color);
+  background-color: var(--section-blur);
+  border: 1px solid var(--section-border);
+  box-shadow: 0 8px 32px var(--section-shadow);
+}
+
+#search-box::placeholder {
+  color: var(--text-color);
 }
 
 #search-box:focus {
+  background-color: var(--section-blur);
   border-color: #6ca0dc;
   box-shadow: 0 0 0 2px rgba(108, 160, 220, 0.2);
 }
@@ -230,4 +239,65 @@ body {
   justify-content: center;
   align-items: center;
   gap: 0.5rem;
+}
+
+/* Next week Data area*/
+
+.next-week-display {
+  grid-area: future;
+
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr;
+  grid-template-areas: "title" "forecast";
+  gap: 0.2rem;
+}
+
+#title-content {
+  grid-area: title;
+  font-weight: bold;
+  font-size: 1.2rem;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+#cal-img {
+  background-image: url("images/calendar-range.svg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 1rem;
+  height: 1rem;
+}
+
+#forecast-content {
+  grid-area: forecast;
+
+  overflow-x: auto;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: 1fr;
+}
+
+.forecast-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-right: 1px solid black;
+  gap: 0.2rem;
+}
+
+.item-temp {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.icon {
+  width: 2rem;
+  height: 2rem;
 }

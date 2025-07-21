@@ -5,6 +5,7 @@ export default function createDomManager() {
 
   function updateDom(data) {
     _todayData(data, currentMode);
+    _weeklyForecastDom(data, currentMode);
   }
 
   function initDom(submitFunc) {
@@ -38,15 +39,13 @@ export default function createDomManager() {
 
     const dayData = data.days[0];
 
-    let celciusConverter = 1;
-    let diff = 0;
     if (mode === "Celcius") {
       //celciusConverter = ...
     }
 
-    const temp = (dayData.temp - diff) * celciusConverter;
-    const minTemp = (dayData.tempmin - diff) * celciusConverter;
-    const maxTemp = (dayData.tempmax - diff) * celciusConverter;
+    const temp = dayData.temp;
+    const minTemp = dayData.tempmin;
+    const maxTemp = dayData.tempmax;
     const sunrise = dayData.sunrise;
     const sunset = dayData.sunset;
     const conditions = dayData.conditions;
@@ -88,6 +87,46 @@ export default function createDomManager() {
 
       return current < sunUp || current > sunDown;
     }
+  }
+
+  function _weeklyForecastDom(data, mode) {
+    const content = document.getElementById("forecast-content");
+    content.textContent = "";
+
+    const specData = data.days;
+
+    for (let i = 1; i < 8; i++) {
+      console.log(specData[i]);
+      _createDayForecast(specData[i], content);
+    }
+
+    const lastItem = content.lastElementChild;
+    lastItem.style.borderRight = "none";
+  }
+
+  function _createDayForecast(data, content) {
+    const tempDiv = document.createElement("div");
+    tempDiv.classList.add("forecast-item");
+
+    const date = document.createElement("p");
+    date.textContent = data.datetime;
+
+    const temp = document.createElement("p");
+    temp.textContent = `${data.temp}°`;
+    temp.classList.add("item-temp");
+
+    const img = document.createElement("img");
+    img.classList.add("icon");
+
+    const iconName = data.icon;
+    const iconUrl = `https://raw.githubusercontent.com/visualcrossing/WeatherIcons/main/PNG/2nd%20Set%20-%20Color/${iconName}.png`;
+    img.src = iconUrl;
+    img.alt = iconName;
+
+    tempDiv.appendChild(date);
+    tempDiv.appendChild(img);
+    tempDiv.appendChild(temp);
+    content.appendChild(tempDiv);
   }
 
   return { initDom, updateDom };
