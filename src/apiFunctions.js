@@ -14,7 +14,7 @@ async function getLocationData(location) {
     });
 
     if (!response.ok) {
-      console.error("HTTP error:", response.status);
+      console.log("HTTP error:", response.status);
       return null;
     }
 
@@ -22,7 +22,7 @@ async function getLocationData(location) {
 
     return data;
   } catch (error) {
-    console.log("Error fetching location data: ", error);
+    console.error("Error fetching location data: ", error);
     return null;
   }
 }

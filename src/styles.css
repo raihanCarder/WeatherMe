@@ -7,13 +7,13 @@
 }
 
 :root {
-  --sunny-day-bg: rgba(135, 206, 250, 0.9);
   --background-blur: rgba(255, 255, 255, 0.1);
   --section-blur: rgba(255, 255, 255, 0.2);
   --section-border: rgba(255, 255, 255, 0.3);
   --section-shadow: rgba(0, 0, 0, 0.2);
   --text-color: #000;
   --background-image: url("images/sunnyDay.jpg");
+  --highlight-color: rgba(255, 255, 255, 0.2);
 }
 
 body {
@@ -40,6 +40,7 @@ body {
   --section-shadow: rgba(0, 0, 0, 0.15);
   --text-color: #000;
   --background-image: url("images/sunnyDay.jpg");
+  --highlight-color: rgba(30, 144, 255, 0.8);
 }
 
 .cloudy-mode {
@@ -49,6 +50,7 @@ body {
   --section-shadow: rgba(0, 0, 0, 0.1);
   --text-color: #333;
   --background-image: url("images/cloudyDay.jpeg");
+  --highlight-color: rgba(70, 130, 180, 0.7);
 }
 
 .night-mode {
@@ -58,6 +60,7 @@ body {
   --section-shadow: rgba(0, 0, 0, 0.5);
   --text-color: #fff;
   --background-image: url("images/nightMode.jpeg");
+  --highlight-color: rgba(138, 43, 226, 0.85);
 }
 
 .night-mode img.icon,
@@ -101,6 +104,46 @@ body {
 
 .top-display {
   grid-area: top-info;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.degree-buttons {
+  display: flex;
+  background-color: inherit;
+}
+
+.degree-buttons > * {
+  flex: 1;
+  font-size: 1rem;
+  padding: 0.5rem;
+  border: none;
+  background-color: var(--section-blur);
+  color: var(--text-color);
+}
+
+.degree-buttons > *:hover {
+  cursor: pointer;
+}
+
+.selected {
+  background-color: var(--highlight-color);
+}
+
+#celsius-btn {
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-left: 1px solid var(--section-border);
+  border-top: 1px solid var(--section-border);
+  border-bottom: 1px solid var(--section-border);
+}
+
+#fahrenheit-btn {
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border: 1px solid var(--section-border);
 }
 
 .today-display,
@@ -112,10 +155,6 @@ body {
   backdrop-filter: blur(6px);
   box-shadow: 0 4px 12px var(--section-shadow);
   padding: 1rem;
-}
-
-.today-stats-display {
-  grid-area: today-stats;
 }
 
 /* ERROR TEXT */
@@ -300,4 +339,39 @@ body {
 .icon {
   width: 2.5rem;
   height: 2.5rem;
+}
+
+.item-date {
+  font-size: 1rem;
+}
+
+.item-day {
+  font-size: 0.8rem;
+}
+
+/* Today Stats */
+
+.today-stats-display {
+  grid-area: today-stats;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  overflow-y: auto;
+  gap: 0.5rem;
+  padding: 1rem;
+}
+
+.stat-item {
+  padding: 0.5rem;
+  font-size: 1.2rem;
+  border-bottom: 1px solid var(--section-border);
+  width: 100%;
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 0.5rem;
 }
