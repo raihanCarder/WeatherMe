@@ -14,7 +14,6 @@ async function getLocationData(location) {
     });
 
     if (!response.ok) {
-      console.log("HTTP error:", response.status);
       return null;
     }
 
@@ -22,7 +21,6 @@ async function getLocationData(location) {
 
     return data;
   } catch (error) {
-    console.error("Error fetching location data: ", error);
     return null;
   }
 }
