@@ -7,9 +7,9 @@ export default function createDomManager() {
 
   function updateDom(data) {
     currentData = data;
-    _todayData(data);
     _weeklyForecastDom(data);
     _todayExtraInfo(data);
+    _todayData(data);
   }
 
   function initDom(submitFunc) {
@@ -174,7 +174,6 @@ export default function createDomManager() {
     const riskStat = document.getElementById("risk-stat");
 
     const currData = data.days[0];
-    console.log(currData);
 
     const dateText = new Date(`${currData.datetime}T00:00:00`);
     const formatted = formatInTimeZone(

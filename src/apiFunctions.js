@@ -30,7 +30,6 @@ async function getLocationData(location) {
 async function handleSearch(input) {
   const data = await getLocationData(input);
   if (data) {
-    console.log(data);
     domManager.updateDom(data);
   } else {
     errorMsg.displayError("Location Not Found", 4000);

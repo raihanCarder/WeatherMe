@@ -7,5 +7,4 @@ export let domManager = "";
 export function initState() {
   errorMsg = createErrorMsg();
   domManager = createDomManager();
-  console.log("state init");
 }
