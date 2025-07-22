@@ -186,7 +186,7 @@ export default function createDomManager() {
 
     humidityStat.textContent = `${currData.humidity}%`;
     windSpeedStat.textContent = `${currData.windspeed} mph`;
-    dewStat.textContent = `${currData.dew}° F`;
+    dewStat.textContent = `${currentMode === "Fahrenheit" ? currData.dew : _computeCelsius(currData.dew)}°`;
     cloudCoverage.textContent = `${currData.cloudcover}%`;
     riskStat.textContent = `${currData.severerisk}%`;
   }
