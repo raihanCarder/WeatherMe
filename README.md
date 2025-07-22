@@ -2,7 +2,7 @@
 
 A Modern take of a Weather app with beautiful UI.
 
-This project I focused on learning about API's and how to use them within my projects. The Api used in my project is the Visual Crossing Web Api. Through this projects I learnt how fetch, asynchronous code and functions and aync and await. I've learnt that using Api's comes with addtional hardships as even though we can use their data the load times of the site get slower and it takes more work to optimize.
+This project I focused on learning about API's and how to use them within my projects. The Api used in my project is the Visual Crossing Web Api. Through this projects I learnt how fetch, asynchronous code and aync and await work. I've learnt that using Api's comes with addtional hardships as even though we can use their data the load times of the site get slower and it takes more work to optimize.
 
 ## Features
 
