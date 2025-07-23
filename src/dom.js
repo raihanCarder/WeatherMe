@@ -1,9 +1,14 @@
 import { errorMsg } from "./state";
 import { formatInTimeZone } from "date-fns-tz";
+import gif from "./images/loading.gif";
 
 export default function createDomManager() {
+  const loader = document.getElementById("loader");
+
   let currentMode = "Fahrenheit";
   let currentData = "";
+
+  _addLoader();
 
   function updateDom(data) {
     currentData = data;
@@ -194,5 +199,21 @@ export default function createDomManager() {
     return Math.round((input - 32) * (5 / 9) * 10) / 10;
   }
 
-  return { initDom, updateDom };
+  function _addLoader() {
+    const img = document.createElement("img");
+    img.src = gif;
+    img.alt = "Loading gif";
+
+    loader.appendChild(img);
+  }
+
+  function showLoader() {
+    loader.classList.remove("hidden");
+  }
+
+  function hideLoader() {
+    loader.classList.add("hidden");
+  }
+
+  return { initDom, updateDom, showLoader, hideLoader };
 }
