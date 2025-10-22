@@ -13,7 +13,7 @@ This project I focused on learning about API's and how to use them within my pro
 - See the Next Week's weather information.
 - Clean and Modern UI
 
-[Live Demo](https://raihancarder.github.io/weather-app/)
+[Live Demo](https://raihancarder.github.io/WeatherMe/)
 
 ## Screenshots
 
