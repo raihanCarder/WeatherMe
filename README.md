@@ -1,4 +1,4 @@
-# Weather App
+# WeatherMe
 
 A Modern take of a Weather app with beautiful UI.
 
