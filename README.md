@@ -33,7 +33,7 @@ This project uses the [Visual Crossing Weather API](https://www.visualcrossing.c
 ## Installation
 
 1. Clone the repo  
-   `git clone https://github.com/raihanCarder/weather-app.git`
+   `git clone https://raihancarder.github.io/WeatherMe/.git`
 
 2. Navigate to the folder  
    `cd weather-app`
